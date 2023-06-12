@@ -1,0 +1,76 @@
+﻿@model mvcStok._1.Models.Entity.tblSatis
+@{
+    ViewBag.Title = "ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+    <div>
+        <label>Ürün Numarası:</label>
+        @Html.TextBoxFor(m => m.urun, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Müşteri Numarası:</label>
+        @Html.TextBoxFor(m => m.musteri, new { @class = "form-control" })
+        <p></p>
+        <a href="~/musteriler/musteriler" class="btn btn-default">Müşteri Ara</a>
+        <a href="~/musteriler/ekle" class="btn btn-default">Müşteri Ekle</a>
+    </div>
+    <div>
+        <label>Ürün Adeti:</label>
+        @Html.TextBoxFor(m => m.adet, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Fiyat:</label>
+        @Html.TextBoxFor(m => m.fiyat, new { @class = "form-control" })
+    </div>
+    <div>
+        <button style="margin-top:5px" class="btn btn-default">Satış Ekle</button>
+    </div>
+</form>
+
+@*<table class="table table-bordered" id="tbl1">
+        <thead>
+            <tr>
+                <th>Satış ID</th>
+                <th>Ürün ADI </th>
+                <th>Müşteri</th>
+                <th>Adet</th>
+                <th>Fiyat</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var satis in Model)
+            {
+                <tr>
+                    <td>@satis.  </td>
+                    <td>@satis.tblUrunler.urunad</td>
+                    <td>@satis.tblMusteriler.musteriad @satis.tblMusteriler.musterisoyad</td>
+                    <td>@satis.adet</td>
+                    <td>@satis.fiyat</td>
+                    <td><a href="/kategori/sil/@satis.satisid" onclick="return confirm('Sil?')" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/kategori/guncelle/@satis.satisid" class="btn btn-default">Güncelle</a></td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <a href="/satislar/ekle/" class="btn btn-default" style="background-color:#cecece">Yeni Satış</a>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+
+    <script>
+        $('#tbl1').DataTable();
+    </script>*@
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<script>
+    $('#tbl1').DataTable();
+</script>

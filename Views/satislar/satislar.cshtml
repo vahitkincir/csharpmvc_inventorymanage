@@ -1,0 +1,50 @@
+﻿@using mvcStok._1.Models.Entity
+@model List<tblSatis>
+
+@{
+    ViewBag.Title = "satislar";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+<table  class="table table-bordered" id="tbl1">
+    <thead>
+        <tr>
+            <th>Satış ID</th>
+            <th>Ürün ADI </th>
+            <th>Müşteri</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var satislar in Model)
+        {
+        <tr>
+            <td>@satislar.satisid</td>
+            <td>@satislar.tblUrunler.urunad</td>
+            <td>@satislar.tblMusteriler.musteriad @satislar.tblMusteriler.musterisoyad</td>
+            <td>@satislar.adet</td>
+            <td>@satislar.fiyat</td>
+            <td><a href="/satislar/sil/@satislar.satisid" onclick="return confirm('Sil?')" class="btn btn-danger">Sil</a></td>
+            <td><a href="/satislar/guncelle/@satislar.satisid" class="btn btn-default">Güncelle</a></td>
+        </tr>
+        }
+    </tbody>
+    
+</table>
+<a href="/satislar/ekle/" class="btn btn-default" style="background-color:#cecece">Yeni Satış</a>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" ></script>
+<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+
+<script>
+    $('#tbl1').DataTable();
+</script>
+
+

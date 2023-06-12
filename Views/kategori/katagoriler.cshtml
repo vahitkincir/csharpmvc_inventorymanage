@@ -1,0 +1,39 @@
+﻿@using mvcStok._1.Models.Entity
+@model  List<tblKategoriler>
+
+@{
+    ViewBag.Title = "katagoriler";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered" id="tbl1">
+    <thead>
+        <tr>
+            <th>Kategori ID</th>
+            <th>Kategori ADI </th>
+            <th>SİL</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <td>@ktgr.kategoriid</td>
+                <td>@ktgr.kategoriad</td>
+                <td><a href="/kategori/sil/@ktgr.kategoriid" onclick="return confirm('Sil?')" class="btn btn-danger">Sil</a></td>
+                <td><a href="/kategori/guncelle/@ktgr.kategoriid" class="btn btn-default">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/kategori/ekle/" class="btn btn-default" style="background-color:#cecece">Yeni Kategori Ekle</a>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+
+<script>
+    $('#tbl1').DataTable();
+</script>

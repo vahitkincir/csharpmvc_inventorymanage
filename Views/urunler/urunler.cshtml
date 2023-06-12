@@ -1,0 +1,46 @@
+﻿@using mvcStok._1.Models.Entity
+@model List<tblUrunler>
+@{
+    ViewBag.Title = "urunler";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<table class="table table-bordered" id="tbl1">
+    <thead>
+        <tr>
+            <th>Ürün ID</th>
+            <th>Ürün Adı</th>
+            <th>Marka</th>
+            <th>Ürün Kategori</th>
+            <th>Fiyat</th>
+            <th>Stok</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var urn in Model)
+        {
+            <tr>
+                <td>@urn.urunid</td>
+                <td>@urn.urunad</td>
+                <td>@urn.marka</td>
+                <td>@urn.tblKategoriler.kategoriad</td>
+                <td>@urn.fiyat</td>
+                <td>@urn.stok</td>
+                <td><a href="/urunler/sil/@urn.urunid" onclick="return confirm('Silmek istiyor musunuz?')" class="btn btn-danger">SİL</a></td>
+                <td><a href="/urunler/guncelle/@urn.urunid" class="btn btn-default">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/urunler/ekle/" class="btn btn-default" style="background-color:#cecece">Yeni Ürün Ekle</a>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+
+<script>
+    $('#tbl1').DataTable();
+</script>

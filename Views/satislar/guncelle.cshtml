@@ -1,0 +1,38 @@
+﻿@model mvcStok._1.Models.Entity.tblSatis
+
+@{
+    ViewBag.Title = "guncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("gnc", "satislar", FormMethod.Post))
+{
+    <body>
+        <div>
+            @Html.LabelFor(m => m.satisid)
+            @Html.TextBoxFor(m => m.satisid, new { disabled = "disabled", @class = "form-control", @required = "" })
+        </div>
+        <div>
+            @Html.LabelFor(m => m.urun)
+            @Html.TextBoxFor(m => m.urun, new { @class = "form-control", @required = "" })
+        </div>
+        <div>
+            @Html.LabelFor(m => m.musteri)
+            @Html.TextBoxFor(m => m.musteri, new{ @class = "form-control", @required = "" })
+        </div>
+        <div>
+            @Html.LabelFor(m => m.adet)
+            @Html.TextBoxFor(m => m.adet, new { @class = "form-control", @required = "" })
+        </div>
+        <div>
+            @Html.LabelFor(m => m.fiyat)
+            @Html.TextBoxFor(m => m.fiyat, new { @class = "form-control", @required = "" })
+        </div>
+             <br />
+        <div>
+            <button class="btn btn-group">GÜNCELLE</button>
+        </div>
+    </body>
+}
+
+
